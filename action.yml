@@ -1,0 +1,28 @@
+name: 'Create cherry-pick and PR to other branches, on commits to a branch'
+description: 'Commits, pushes a new PR branch and creates PR for the commits.'
+author: '@albertoff7'
+inputs:
+  pr_branch:
+    description: 'Target Branch to create PR'
+    required: true
+  pr_branch_main:
+    description: 'Target second Branch to create PR, usually main'
+    required: true
+  pr_labels:
+    description: 'Labels for the PR'
+    required: false
+    default: 'autocreated'
+  pr_body:
+    description: 'Description of PR'
+    required: false
+    default: 'This is an auto-generated description'
+  pr_cherry_parent:
+    description: 'Parent for cherry-pick'
+    required: true
+    default: '1'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+branding:
+  icon: activity
+  color: green
